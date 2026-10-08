@@ -986,13 +986,14 @@ public final class LineageSettings {
          * 0: Display the battery an icon in portrait mode
          * 1: Display the battery as a circle
          * 2: Display the battery as plain text
+         * 3: Hide the battery icon
          * default: 0
          */
         public static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
 
         /** @hide */
         public static final Validator STATUS_BAR_BATTERY_STYLE_VALIDATOR =
-                new InclusiveIntegerRangeValidator(0, 2);
+                new InclusiveIntegerRangeValidator(0, 3);
 
         /**
          * Status bar battery %
@@ -1006,6 +1007,17 @@ public final class LineageSettings {
         /** @hide */
         public static final Validator STATUS_BAR_SHOW_BATTERY_PERCENT_VALIDATOR =
                 new InclusiveIntegerRangeValidator(0, 2);
+
+        /**
+         * Whether to display "4G" instead of "LTE" for the status bar mobile data icon
+         * 0: Use the carrier default
+         * 1: Display "4G" instead of "LTE"
+         * default: 0
+         */
+        public static final String STATUS_BAR_SHOW_4G_FOR_LTE = "status_bar_show_4g_for_lte";
+
+        /** @hide */
+        public static final Validator STATUS_BAR_SHOW_4G_FOR_LTE_VALIDATOR = sBooleanValidator;
 
         /**
          * Whether the phone ringtone should be played in an increasing manner
@@ -2133,6 +2145,7 @@ public final class LineageSettings {
             VALIDATORS.put(STATUS_BAR_BATTERY_STYLE, STATUS_BAR_BATTERY_STYLE_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_SHOW_BATTERY_PERCENT,
                     STATUS_BAR_SHOW_BATTERY_PERCENT_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_SHOW_4G_FOR_LTE, STATUS_BAR_SHOW_4G_FOR_LTE_VALIDATOR);
             VALIDATORS.put(INCREASING_RING, INCREASING_RING_VALIDATOR);
             VALIDATORS.put(INCREASING_RING_START_VOLUME,
                     INCREASING_RING_START_VOLUME_VALIDATOR);
